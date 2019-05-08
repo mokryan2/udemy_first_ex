@@ -8,6 +8,7 @@ const person = props => {
   return (
     <div className="Person">
       <h1 onClick={props.click}>Hi! My name is {props.name}! I am {props.age} years old! I enjoy {props.hobby} for fun! Aren't I intersting?</h1>
+      {/* By inserting the onclick into the h1 bracket, it makes the text of this component change to match a state that is established in the app.js file */}
     </div>
   );
 };
