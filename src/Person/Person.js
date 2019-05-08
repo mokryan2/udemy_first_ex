@@ -7,9 +7,7 @@ const person = props => {
 
   return (
     <div className="Person">
-      <h1>
-        Hi! My name is {props.name}! I am {props.age} years old! I enjoy {props.hobby} for fun! Aren't I intersting?
-      </h1>
+      <h1 onClick={props.click}>Hi! My name is {props.name}! I am {props.age} years old! I enjoy {props.hobby} for fun! Aren't I intersting?</h1>
     </div>
   );
 };
