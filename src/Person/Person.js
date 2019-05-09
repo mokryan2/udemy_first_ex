@@ -11,8 +11,13 @@ const person = props => {
       {/* By inserting the onclick into the h1 bracket, it makes the text of this component change to match a state that is established in the app.js file */}
       <input
         type="text"
-        onChange={props.changed}
+        onChange={props.changedName}
         value={props.name}
+      />
+      <input
+        type="text"
+        onChange={props.changedHobby}
+        value={props.hobby}
       />
       {/* Text boxes can also be used to dynamically modify the DOM.  */}
     </div>

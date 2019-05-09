@@ -31,11 +31,23 @@ class App extends Component {
       ]
     })
   };
-  // This handler is meant to work with the text box that was added to the person controller starting on line 12
+  // This handler is meant to work with the text box that was added to the person component starting on line 12
   // What this does is allow the user to immediately change a piece of data held within the controller before their very eyes!
 
+  hobbyChangeHandler = (event) => {
+    this.setState({
+      persons: [
+        { name: "Ryan", age: "27", hobby: "playing music" },
+        { name: "Russell", age: "27", hobby: event.target.value }
+      ]
+    })
+  };
+  // This is just an additional handler added in meant to controll the hobby
+  // As you can see, these handlers are limited to just one of the Person components due to the fact that if I were to add this to both
+  // both of the components would produce the exact same change. For the sake of displaying what React can do though, I've left it to just the one
+
   render() {
-    // JSX elements will be added here by means of components!
+    // JSX elements will be added here by means of components or general HTML!
     return (
       <div className="App">
         <h1>Hi, I'm the beginning of a basic React App!</h1>
@@ -57,7 +69,8 @@ class App extends Component {
           age={this.state.persons[1].age}
           hobby={this.state.persons[1].hobby}
           click={this.hobbyHandler.bind(this, "brewing my own beer")}
-          changed={this.nameChangeHandler}
+          changedName={this.nameChangeHandler}
+          changedHobby={this.hobbyChangeHandler}
         // This is another basic, but useful function of React; the component is smart enought to follow the same format as the previous interation while using different data!
         />
       </div>
