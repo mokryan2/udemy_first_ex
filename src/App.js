@@ -23,6 +23,17 @@ class App extends Component {
   //Due to the fact this uses what is called a "bind" method, the result is that depending on which component you click in the browser will cause the new hobby to change to the same thing.
   //There most likely is a workaround for this through creating an additional handler, but it'll require some work to figure it out eventually. 
 
+  nameChangeHandler = (event) => {
+    this.setState({
+      persons: [
+        { name: "Ryan", age: "27", hobby: "playing music" },
+        { name: event.target.value, age: "27", hobby: "riding bikes" }
+      ]
+    })
+  };
+  // This handler is meant to work with the text box that was added to the person controller starting on line 12
+  // What this does is allow the user to immediately change a piece of data held within the controller before their very eyes!
+
   render() {
     // JSX elements will be added here by means of components!
     return (
@@ -46,6 +57,7 @@ class App extends Component {
           age={this.state.persons[1].age}
           hobby={this.state.persons[1].hobby}
           click={this.hobbyHandler.bind(this, "brewing my own beer")}
+          changed={this.nameChangeHandler}
         // This is another basic, but useful function of React; the component is smart enought to follow the same format as the previous interation while using different data!
         />
       </div>
