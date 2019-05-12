@@ -54,6 +54,7 @@ class App extends Component {
       ]
     })
   };
+  // You can also manipulate data within the DOM by using buttons to update information!
 
   render() {
     // JSX elements will be added here by means of components or general!
@@ -93,3 +94,29 @@ class App extends Component {
 }
 
 export default App;
+
+
+// ------------------ Alternative State methods through Hooks!---------------------//
+// Aside from using the current methods mentioned above, there is a new methodology called using Hooks to manage state manipulation.
+// Going forward, this most likley will be the new trend, but it's still kind of new so it'll take some getting used to.
+// What this change will require affects some of the initial set up
+
+// import React, { Component } from "react"; will now be replaced with import React, { useState } from "react";
+// class App extends Component will be replaced with const app(or App either one really)= props => {}
+// the render method will be removed just like in a functional component and will just return()
+
+// Ideally, the start of the app will look like:
+
+// import React, { useState } from "react";
+// import Person from "./Person/Person";
+// import "./App.css";
+// import "./Person/Person.css";
+
+// const app = props =>{
+//   const  = useState({
+//     persons: [
+//       { name: "Ryan", age: "27", hobby: "playing music" },
+//       { name: "Russell", age: "27", hobby: "riding bikes" }
+//     ]
+//   });
+
