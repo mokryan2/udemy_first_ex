@@ -46,8 +46,17 @@ class App extends Component {
   // As you can see, these handlers are limited to just one of the Person components due to the fact that if I were to add this to both
   // both of the components would produce the exact same change. For the sake of displaying what React can do though, I've left it to just the one
 
+  switchNameHandler = () => {
+    this.setState({
+      persons: [
+        { name: "Ryan M.", age: "27", hobby: "playing music" },
+        { name: "Russell P.", age: "27", hobby: "riding bikes" }
+      ]
+    })
+  };
+
   render() {
-    // JSX elements will be added here by means of components or general HTML!
+    // JSX elements will be added here by means of components or general!
     return (
       <div className="App">
         <h1>Hi, I'm the beginning of a basic React App!</h1>
@@ -55,6 +64,11 @@ class App extends Component {
           This is a pretty bare bones example, but there's still going to be
           some interesting stuff happening here! I promise!
         </h2>
+
+        <button
+          onClick={this.switchNameHandler}>
+          Include last name initials!
+        </button>
 
         <Person
           name={this.state.persons[0].name}
