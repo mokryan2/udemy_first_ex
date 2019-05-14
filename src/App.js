@@ -113,7 +113,7 @@ export default App;
 // import "./Person/Person.css";
 
 // const app = props => {
-//   const  [personsState, setPersonsState] = useState({
+//   const  [personsState (refer to line 163), setPersonsState (refer to line 128)] = useState({
 //     persons: [
 //       { name: "Ryan", age: "27", hobby: "playing music" },
 //       { name: "Russell", age: "27", hobby: "riding bikes" }
@@ -122,6 +122,19 @@ export default App;
 // ---The useState hook will always return an array with exactly 2 elements. 
 // The first element will always be the current state; the second will always be a function that allows us to update the state so the component will be re-rendered
 // You'll use array destructuring so that you can pull information from the function
+
+
+// const switchNameHandler = () => {
+//   setPersonsState({
+//     persons: [
+//       { name: "Ryan M.", age: "27", hobby: "playing music" },
+//       { name: "Russell P.", age: "27", hobby: "riding bikes" }
+//     ]
+//   })
+// };
+
+// You can use this method because hooks allow functions. You just need to put it within a variable and replace this.setState with 
+// setPersonsState which is established within the destructured array
 
 // return (
 //   <div className="App">
@@ -132,9 +145,12 @@ export default App;
 //     </h2>
 
 //     <button
-//       onClick={this.switchNameHandler}>
+//       onClick={switchNameHandler}>
 //       Include last name initials!
 //     </button>
+
+// ----The this for the button becomes irrelevant because of Hooks; what this means is that you can just call the function to make it work.
+// ALSO, remmeber that you don't need to include parenthesis after the funciton is called becuase it will cause the function to activate outside of it's intended use.
 
 //     <Person
 //       name={personsState.persons[0].name}
@@ -144,7 +160,8 @@ export default App;
 //     // Remember how I said back in the Person.js component that you can make your data dynamic? This is how/where you put it to work!
 //     />
 
-// ---- Note that the this.state is now replaced with the personsState due to the implementation of hooks
+// ---- Note that the this.state is now replaced with the personsState due to the implementation of hooks.
+// Due to the fact that this no longer is a class based components, you HAVE to do this switch
 
 //     <Person
 //       name={personsState.persons[1].name}
