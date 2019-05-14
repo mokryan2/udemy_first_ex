@@ -174,6 +174,10 @@ export default App;
 //     />
 //   </div>
 // );
-//
 // 
 // export default app;
+
+
+// While this is all good and fine for manipulating state, note that the way state is managed will be different!
+// The function that is passed into the initial state will not merge with the original state. In other words, the state might be missing original pieces of information.
+// You need to make sure you manually add in any different information, but there is a better way by implementing useState multiple times to account for additional information.
