@@ -112,11 +112,51 @@ export default App;
 // import "./App.css";
 // import "./Person/Person.css";
 
-// const app = props =>{
-//   const  = useState({
+// const app = props => {
+//   const  [personsState, setPersonsState] = useState({
 //     persons: [
 //       { name: "Ryan", age: "27", hobby: "playing music" },
 //       { name: "Russell", age: "27", hobby: "riding bikes" }
 //     ]
 //   });
+// ---The useState hook will always return an array with exactly 2 elements. 
+// The first element will always be the current state; the second will always be a function that allows us to update the state so the component will be re-rendered
+// You'll use array destructuring so that you can pull information from the function
 
+// return (
+//   <div className="App">
+//     <h1>Hi, I'm the beginning of a basic React App!</h1>
+//     <h2>
+//       This is a pretty bare bones example, but there's still going to be
+//       some interesting stuff happening here! I promise!
+//     </h2>
+
+//     <button
+//       onClick={this.switchNameHandler}>
+//       Include last name initials!
+//     </button>
+
+//     <Person
+//       name={personsState.persons[0].name}
+//       age={personsState.persons[0].age}
+//       hobby={personsState.persons[0].hobby}
+//       click={this.hobbyHandler.bind(this, "Cooking copious amounts of food")}
+//     // Remember how I said back in the Person.js component that you can make your data dynamic? This is how/where you put it to work!
+//     />
+
+// ---- Note that the this.state is now replaced with the personsState due to the implementation of hooks
+
+//     <Person
+//       name={personsState.persons[1].name}
+//       age={personsState.persons[1].age}
+//       hobby={personsState.persons[1].hobby}
+//       click={this.hobbyHandler.bind(this, "brewing my own beer")}
+//       changedName={this.nameChangeHandler}
+//       changedHobby={this.hobbyChangeHandler}
+//     // This is another basic, but useful function of React; the component is smart enought to follow the same format as the previous interation while using different data!
+//     />
+//   </div>
+// );
+//
+// 
+// export default app;
