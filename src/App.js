@@ -7,7 +7,8 @@ class App extends Component {
   state = {
     persons: [
       { name: "Ryan", age: "27", hobby: "playing music" },
-      { name: "Russell", age: "27", hobby: "riding bikes" }
+      { name: "Russell", age: "27", hobby: "riding bikes" },
+      { name: "Nishi", age: "27", hobby: "playing with cats" }
     ]
   };
 
@@ -15,7 +16,8 @@ class App extends Component {
     this.setState({
       persons: [
         { name: "Ryan", age: "27", hobby: newHobby },
-        { name: "Russel", age: "27", hobby: newHobby }
+        { name: "Russel", age: "27", hobby: newHobby },
+        { name: "Nishi", age: "27", hobby: newHobby }
       ]
     })
   };
@@ -27,7 +29,8 @@ class App extends Component {
     this.setState({
       persons: [
         { name: "Ryan", age: "27", hobby: "playing music" },
-        { name: event.target.value, age: "27", hobby: "riding bikes" }
+        { name: event.target.value, age: "27", hobby: "riding bikes" },
+        { name: "Nishi", age: "27", hobby: "playing with cats" }
       ]
     })
   };
@@ -38,7 +41,8 @@ class App extends Component {
     this.setState({
       persons: [
         { name: "Ryan", age: "27", hobby: "playing music" },
-        { name: "Russell", age: "27", hobby: event.target.value }
+        { name: "Russell", age: "27", hobby: event.target.value },
+        { name: "Nishi", age: "27", hobby: "playing with cats" }
       ]
     })
   };
@@ -50,7 +54,8 @@ class App extends Component {
     this.setState({
       persons: [
         { name: "Ryan M.", age: "27", hobby: "playing music" },
-        { name: "Russell P.", age: "27", hobby: "riding bikes" }
+        { name: "Russell P.", age: "27", hobby: "riding bikes" },
+        { name: "Ryan N.", age: "27", hobby: "playing with cats" }
       ]
     })
   };
@@ -83,6 +88,16 @@ class App extends Component {
           name={this.state.persons[1].name}
           age={this.state.persons[1].age}
           hobby={this.state.persons[1].hobby}
+          click={this.hobbyHandler.bind(this, "brewing my own beer")}
+          changedName={this.nameChangeHandler}
+          changedHobby={this.hobbyChangeHandler}
+        // This is another basic, but useful function of React; the component is smart enought to follow the same format as the previous interation while using different data!
+        />
+
+        <Person
+          name={this.state.persons[2].name}
+          age={this.state.persons[2].age}
+          hobby={this.state.persons[2].hobby}
           click={this.hobbyHandler.bind(this, "brewing my own beer")}
           changedName={this.nameChangeHandler}
           changedHobby={this.hobbyChangeHandler}
