@@ -51,16 +51,11 @@ class App extends Component {
   // As you can see, these handlers are limited to just one of the Person components due to the fact that if I were to add this to both
   // both of the components would produce the exact same change. For the sake of displaying what React can do though, I've left it to just the one
 
-  switchNameHandler = () => {
-    this.setState({
-      persons: [
-        { name: "Ryan M.", age: "27", hobby: "playing music" },
-        { name: "Russell P.", age: "27", hobby: "riding bikes" },
-        { name: "Ryan N.", age: "27", hobby: "playing with cats" }
-      ]
-    })
+  deletePesonHandler = (personIndex) => {
+    const persons = this.state.persons;
+    persons.splice(personIndex, 1);
+    this.setState({ persons: persons });
   };
-  // You can also manipulate data within the DOM by using buttons to update information!
 
   togglePersonHandler = () => {
     const doesShow = this.state.showPersons;
@@ -77,8 +72,9 @@ class App extends Component {
       persons = (
         <div>
           {/* This is a modification to the render method. Given the initial state is an array, you can use the map() method to easily render the data. */}
-          {this.state.persons.map(person => {
+          {this.state.persons.map((person, index) => {
             return <Person
+              click={() => this.deletePesonHandler(index)}
               name={person.name}
               age={person.age}
               hobby={person.hobby}
@@ -203,6 +199,20 @@ export default App;
 // You need to make sure you manually add in any different information, but there is a better way by implementing useState multiple times to account for additional information.
 
 // --------------------------------------- Alternative Conditional Rendering ---------------------------------------
+
+// switchNameHandler = () => {
+//   this.setState({
+//     persons: [
+//       { name: "Ryan M.", age: "27", hobby: "playing music" },
+//       { name: "Russell P.", age: "27", hobby: "riding bikes" },
+//       { name: "Ryan N.", age: "27", hobby: "playing with cats" }
+//     ]
+//   })
+// };
+// // You can also manipulate data within the DOM by using buttons to update information!
+
+
+
 
 // {
 //   this.state.showPersons === true ?
