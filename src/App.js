@@ -9,7 +9,8 @@ class App extends Component {
       { name: "Ryan", age: "27", hobby: "playing music" },
       { name: "Russell", age: "27", hobby: "riding bikes" },
       { name: "Nishi", age: "27", hobby: "playing with cats" }
-    ]
+    ],
+    showPersons: false
   };
 
   hobbyHandler = (newHobby) => {
@@ -61,6 +62,11 @@ class App extends Component {
   };
   // You can also manipulate data within the DOM by using buttons to update information!
 
+  togglePersonHandler = () => {
+    const doesShow = this.state.showPersons;
+    this.setState({ showPersons: !doesShow })
+  }
+
   render() {
     // JSX elements will be added here by means of components or general!
     return (
@@ -72,37 +78,45 @@ class App extends Component {
         </h2>
 
         <button
-          onClick={this.switchNameHandler}>
+          // onClick={this.switchNameHandler}
+          onClick={this.togglePersonHandler}
+        >
           Include last name initials!
         </button>
 
-        <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age}
-          hobby={this.state.persons[0].hobby}
-          click={this.hobbyHandler.bind(this, "Cooking copious amounts of food")}
-        // Remember how I said back in the Person.js component that you can make your data dynamic? This is how/where you put it to work!
-        />
+        {
+          this.state.showPersons === true ?
+            <div>
+              <Person
+                name={this.state.persons[0].name}
+                age={this.state.persons[0].age}
+                hobby={this.state.persons[0].hobby}
+                click={this.hobbyHandler.bind(this, "Cooking copious amounts of food")}
+              // Remember how I said back in the Person.js component that you can make your data dynamic? This is how/where you put it to work!
+              />
 
-        <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-          hobby={this.state.persons[1].hobby}
-          click={this.hobbyHandler.bind(this, "brewing my own beer")}
-          changedName={this.nameChangeHandler}
-          changedHobby={this.hobbyChangeHandler}
-        // This is another basic, but useful function of React; the component is smart enought to follow the same format as the previous interation while using different data!
-        />
+              <Person
+                name={this.state.persons[1].name}
+                age={this.state.persons[1].age}
+                hobby={this.state.persons[1].hobby}
+                click={this.hobbyHandler.bind(this, "brewing my own beer")}
+                changedName={this.nameChangeHandler}
+                changedHobby={this.hobbyChangeHandler}
+              // This is another basic, but useful function of React; the component is smart enought to follow the same format as the previous interation while using different data!
+              />
 
-        <Person
-          name={this.state.persons[2].name}
-          age={this.state.persons[2].age}
-          hobby={this.state.persons[2].hobby}
-          click={this.hobbyHandler.bind(this, "brewing my own beer")}
-          changedName={this.nameChangeHandler}
-          changedHobby={this.hobbyChangeHandler}
-        // This is another basic, but useful function of React; the component is smart enought to follow the same format as the previous interation while using different data!
-        />
+              <Person
+                name={this.state.persons[2].name}
+                age={this.state.persons[2].age}
+                hobby={this.state.persons[2].hobby}
+                click={this.hobbyHandler.bind(this, "brewing my own beer")}
+                changedName={this.nameChangeHandler}
+                changedHobby={this.hobbyChangeHandler}
+              // This is another basic, but useful function of React; the component is smart enought to follow the same format as the previous interation while using different data!
+              />
+            </div> : null
+        }
+
       </div>
     );
   }
@@ -111,12 +125,12 @@ class App extends Component {
 export default App;
 
 
-// ------------------ Alternative State methods through Hooks!---------------------//
-// Aside from using the current methods mentioned above, there is a new methodology called using Hooks to manage state manipulation.
-// Going forward, this most likley will be the new trend, but it's still kind of new so it'll take some getting used to.
-// What this change will require affects some of the initial set up
+  // ------------------ Alternative State methods through Hooks!---------------------//
+  // Aside from using the current methods mentioned above, there is a new methodology called using Hooks to manage state manipulation.
+  // Going forward, this most likley will be the new trend, but it's still kind of new so it'll take some getting used to.
+  // What this change will require affects some of the initial set up
 
-// import React, { Component } from "react"; will now be replaced with import React, { useState } from "react";
+// import React, {Component} from "react"; will now be replaced with import React, {useState} from "react";
 // class App extends Component will be replaced with const app(or App either one really)= props => {}
 // the render method will be removed just like in a functional component and will just return()
 
