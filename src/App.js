@@ -6,9 +6,9 @@ import "./Person/Person.css";
 class App extends Component {
   state = {
     persons: [
-      { name: "Ryan", age: "27", hobby: "playing music" },
-      { name: "Russell", age: "27", hobby: "riding bikes" },
-      { name: "Nishi", age: "27", hobby: "playing with cats" }
+      { id: "23rfef", name: "Ryan", age: "27", hobby: "playing music" },
+      { id: "sdfews", name: "Russell", age: "27", hobby: "riding bikes" },
+      { id: "tyjrty", name: "Nishi", age: "27", hobby: "playing with cats" }
     ],
     showPersons: false
   };
@@ -81,6 +81,7 @@ class App extends Component {
               name={person.name}
               age={person.age}
               hobby={person.hobby}
+              key={person.id}
             />
           })}
         </div>
