@@ -76,30 +76,14 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          <Person
-            name={this.state.persons[0].name}
-            age={this.state.persons[0].age}
-            hobby={this.state.persons[0].hobby}
-            click={this.hobbyHandler.bind(this, "Cooking copious amounts of food")}
-          />
-
-          <Person
-            name={this.state.persons[1].name}
-            age={this.state.persons[1].age}
-            hobby={this.state.persons[1].hobby}
-            click={this.hobbyHandler.bind(this, "brewing my own beer")}
-            changedName={this.nameChangeHandler}
-            changedHobby={this.hobbyChangeHandler}
-          />
-
-          <Person
-            name={this.state.persons[2].name}
-            age={this.state.persons[2].age}
-            hobby={this.state.persons[2].hobby}
-            click={this.hobbyHandler.bind(this, "brewing my own beer")}
-            changedName={this.nameChangeHandler}
-            changedHobby={this.hobbyChangeHandler}
-          />
+          {/* This is a modification to the render method. Given the initial state is an array, you can use the map() method to easily render the data. */}
+          {this.state.persons.map(person => {
+            return <Person
+              name={person.name}
+              age={person.age}
+              hobby={person.hobby}
+            />
+          })}
         </div>
       )
       // This is the more elegant method to conditionally render component in the DOM. By inserting this here in the render() as opposed to the return(), it keeps the code cleaner.
