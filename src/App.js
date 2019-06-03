@@ -52,10 +52,13 @@ class App extends Component {
   // both of the components would produce the exact same change. For the sake of displaying what React can do though, I've left it to just the one
 
   deletePesonHandler = (personIndex) => {
-    const persons = this.state.persons;
+    const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({ persons: persons });
   };
+  // This particular method first acquires the state, removes the specific element by using the index of the person, and then updating the state; however,
+  // theres a bit of a problem because this mutates the original state (const persons = this.state.persons;). What you should do is copy the array into a new constant.
+  // and then use a spread (...) to maintain the original state
 
   togglePersonHandler = () => {
     const doesShow = this.state.showPersons;
