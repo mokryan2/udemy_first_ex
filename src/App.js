@@ -26,13 +26,21 @@ class App extends Component {
   //Due to the fact this uses what is called a "bind" method, the result is that depending on which component you click in the browser will cause the new hobby to change to the same thing.
   //There most likely is a workaround for this through creating an additional handler, but it'll require some work to figure it out eventually. 
 
-  nameChangeHandler = (event) => {
+  nameChangeHandler = (event, id) => {
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id === id;
+    });
+
+    const person = {
+      ...this.state.persons[personIndex]
+    };
+
+    person.name = event.target.value;
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
+
     this.setState({
-      persons: [
-        { name: "Ryan", age: "27", hobby: "playing music" },
-        { name: event.target.value, age: "27", hobby: "riding bikes" },
-        { name: "Nishi", age: "27", hobby: "playing with cats" }
-      ]
+      persons: persons
     })
   };
   // This handler is meant to work with the text box that was added to the person component starting on line 12
@@ -82,6 +90,7 @@ class App extends Component {
               age={person.age}
               hobby={person.hobby}
               key={person.id}
+              changedName={(event) => this.nameChangeHandler(event, person.id)}
             />
           })}
         </div>
