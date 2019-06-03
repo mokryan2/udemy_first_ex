@@ -102,6 +102,7 @@ class App extends Component {
           />
         </div>
       )
+      // This is the more elegant method to conditionally render component in the DOM. By inserting this here in the render() as opposed to the return(), it keeps the code cleaner.
     };
 
     return (
@@ -121,6 +122,7 @@ class App extends Component {
         </button>
 
         {persons}
+        {/* This persons, which is established in the render(), allows the conditional rendering to happen */}
 
       </div>
     );
