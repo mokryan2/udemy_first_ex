@@ -70,6 +70,40 @@ class App extends Component {
 
   render() {
     // JSX elements will be added here by means of components or general!
+
+    let persons = null;
+
+    if (this.state.showPersons) {
+      persons = (
+        <div>
+          <Person
+            name={this.state.persons[0].name}
+            age={this.state.persons[0].age}
+            hobby={this.state.persons[0].hobby}
+            click={this.hobbyHandler.bind(this, "Cooking copious amounts of food")}
+          />
+
+          <Person
+            name={this.state.persons[1].name}
+            age={this.state.persons[1].age}
+            hobby={this.state.persons[1].hobby}
+            click={this.hobbyHandler.bind(this, "brewing my own beer")}
+            changedName={this.nameChangeHandler}
+            changedHobby={this.hobbyChangeHandler}
+          />
+
+          <Person
+            name={this.state.persons[2].name}
+            age={this.state.persons[2].age}
+            hobby={this.state.persons[2].hobby}
+            click={this.hobbyHandler.bind(this, "brewing my own beer")}
+            changedName={this.nameChangeHandler}
+            changedHobby={this.hobbyChangeHandler}
+          />
+        </div>
+      )
+    };
+
     return (
       <div className="App">
         <h1>Hi, I'm the beginning of a basic React App!</h1>
@@ -86,40 +120,7 @@ class App extends Component {
           Reveal the components!
         </button>
 
-        {
-          this.state.showPersons === true ?
-            <div>
-              <Person
-                name={this.state.persons[0].name}
-                age={this.state.persons[0].age}
-                hobby={this.state.persons[0].hobby}
-                click={this.hobbyHandler.bind(this, "Cooking copious amounts of food")}
-              // Remember how I said back in the Person.js component that you can make your data dynamic? This is how/where you put it to work!
-              />
-
-              <Person
-                name={this.state.persons[1].name}
-                age={this.state.persons[1].age}
-                hobby={this.state.persons[1].hobby}
-                click={this.hobbyHandler.bind(this, "brewing my own beer")}
-                changedName={this.nameChangeHandler}
-                changedHobby={this.hobbyChangeHandler}
-              // This is another basic, but useful function of React; the component is smart enought to follow the same format as the previous interation while using different data!
-              />
-
-              <Person
-                name={this.state.persons[2].name}
-                age={this.state.persons[2].age}
-                hobby={this.state.persons[2].hobby}
-                click={this.hobbyHandler.bind(this, "brewing my own beer")}
-                changedName={this.nameChangeHandler}
-                changedHobby={this.hobbyChangeHandler}
-              // This is another basic, but useful function of React; the component is smart enought to follow the same format as the previous interation while using different data!
-              />
-            </div> : null
-        }
-        {/* What's happening here is that by placing the components in a div and then wrapping with { }, it allows us to insert a simple ternary statement.
-            This is meant to work in tandem with the showPersons state that is established initially*/}
+        {persons}
 
       </div>
     );
@@ -214,3 +215,43 @@ export default App;
 // While this is all good and fine for manipulating state, note that the way state is managed will be different!
 // The function that is passed into the initial state will not merge with the original state. In other words, the state might be missing original pieces of information.
 // You need to make sure you manually add in any different information, but there is a better way by implementing useState multiple times to account for additional information.
+
+// --------------------------------------- Alternative Conditional Rendering ---------------------------------------
+
+// {
+//   this.state.showPersons === true ?
+//     <div>
+//       <Person
+//         name={this.state.persons[0].name}
+//         age={this.state.persons[0].age}
+//         hobby={this.state.persons[0].hobby}
+//         click={this.hobbyHandler.bind(this, "Cooking copious amounts of food")}
+//       // Remember how I said back in the Person.js component that you can make your data dynamic? This is how/where you put it to work!
+//       />
+
+//       <Person
+//         name={this.state.persons[1].name}
+//         age={this.state.persons[1].age}
+//         hobby={this.state.persons[1].hobby}
+//         click={this.hobbyHandler.bind(this, "brewing my own beer")}
+//         changedName={this.nameChangeHandler}
+//         changedHobby={this.hobbyChangeHandler}
+//       // This is another basic, but useful function of React; the component is smart enought to follow the same format as the previous interation while using different data!
+//       />
+
+//       <Person
+//         name={this.state.persons[2].name}
+//         age={this.state.persons[2].age}
+//         hobby={this.state.persons[2].hobby}
+//         click={this.hobbyHandler.bind(this, "brewing my own beer")}
+//         changedName={this.nameChangeHandler}
+//         changedHobby={this.hobbyChangeHandler}
+//       // This is another basic, but useful function of React; the component is smart enought to follow the same format as the previous interation while using different data!
+//       />
+//     </div> : null
+// }
+// {/* What's happening here is that by placing the components in a div and then wrapping with { }, it allows us to insert a simple ternary statement.
+//   This is meant to work in tandem with the showPersons state that is established initially.*/}
+
+//  This method, while it does technically work, is mildly inelegant for it's intended purpose. It causes a lot of unneccesary clutter within the actual code.
+//  By using the current method that is inserted prior to the return(), it allows the initial template of the page to remain much cleaner.
