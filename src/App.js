@@ -82,7 +82,8 @@ class App extends Component {
           // onClick={this.switchNameHandler}
           onClick={this.togglePersonHandler}
         >
-          Include last name initials!
+          {/* Include last name initials! */}
+          Reveal the components!
         </button>
 
         {
