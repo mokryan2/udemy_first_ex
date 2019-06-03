@@ -65,7 +65,8 @@ class App extends Component {
   togglePersonHandler = () => {
     const doesShow = this.state.showPersons;
     this.setState({ showPersons: !doesShow })
-  }
+  };
+  // This handler is meant to be used in a CONDITIONAL situation. It works, but it's not exactly the best method.
 
   render() {
     // JSX elements will be added here by means of components or general!
@@ -116,6 +117,8 @@ class App extends Component {
               />
             </div> : null
         }
+        {/* What's happening here is that by placing the components in a div and then wrapping with { }, it allows us to insert a simple ternary statement.
+            This is meant to work in tandem with the showPersons state that is established initially*/}
 
       </div>
     );
