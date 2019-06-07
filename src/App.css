@@ -8,3 +8,11 @@ input {
   font-weight: bold;
   text-align: center;
 }
+
+.red{ 
+  color: red;
+};
+
+.shrink {
+  font-size: 8px;
+};
