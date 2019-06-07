@@ -91,7 +91,8 @@ class App extends Component {
       cursor: "pointer",
       padding: "8px",
       font: "inherit",
-      border: "4px solid blue"
+      border: "4px solid blue",
+      transition: ".5s"
     }
 
     // While i'm typically against inline styling, in this instance it's acceptable; this should really be kept within a singular file paired with a component.
@@ -126,7 +127,8 @@ class App extends Component {
         color: "black",
         fontSize: "24px",
         border: "4px solid yellow",
-        padding: "8px"
+        padding: "8px",
+        transition: ".5s"
       };
       // This is how you can add conditional rendering to styles! This will make it so that if the array is being displayed, the button will reflect said styles.
       // Technically you could also call specific parts of the original style (style.backgroundColor) if you only want to change one aspect, but either way it works.
