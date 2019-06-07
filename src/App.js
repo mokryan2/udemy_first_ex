@@ -132,20 +132,24 @@ class App extends Component {
       // Technically you could also call specific parts of the original style (style.backgroundColor) if you only want to change one aspect, but either way it works.
     };
 
-    let classes = [];
+    const classes = [];
 
     if (this.state.persons.length <= 2) {
-      classes.push('red')
-    }
+      classes.push('red');
+    };
+
+    if (this.state.persons.length <= 1) {
+      classes.push('bold');
+    };
 
     return (
       <div className="App">
         <h1>Hi, I'm the beginning of a basic React App!</h1>
-        <h2 className={classes}>
+        <h2>
           This is a pretty bare bones example, but there's still going to be
           some interesting stuff happening here! I promise!
         </h2>
-
+        <p className={classes.join(' ')}>I blinked did something change...?</p>
         <button
           style={style}
           // onClick={this.switchNameHandler}
