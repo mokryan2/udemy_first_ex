@@ -135,13 +135,16 @@ class App extends Component {
     const classes = [];
 
     if (this.state.persons.length <= 2) {
-      classes.push('red');
+      classes.push("red");
     };
 
     if (this.state.persons.length <= 1) {
-      classes.push('bold');
+      classes.push("bold");
     };
 
+    if (this.state.persons.length <= 0) {
+      classes.push("shrink");
+    };
     return (
       <div className="App">
         <h1>Hi, I'm the beginning of a basic React App!</h1>
@@ -149,7 +152,7 @@ class App extends Component {
           This is a pretty bare bones example, but there's still going to be
           some interesting stuff happening here! I promise!
         </h2>
-        <p className={classes.join(' ')}>I blinked did something change...?</p>
+        <p className={classes.join(" ")}>I blinked did something change...?</p>
         <button
           style={style}
           // onClick={this.switchNameHandler}
