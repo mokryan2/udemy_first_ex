@@ -84,6 +84,18 @@ class App extends Component {
   render() {
     // JSX elements will be added here by means of components or general!
 
+    let style = {
+      backgroundColor: "green",
+      color: "white",
+      fontSize: "20px",
+      cursor: "pointer",
+      padding: "8px",
+      font: "inherit",
+      border: "4px solid blue"
+    }
+
+    // While i'm typically against inline styling, in this instance it's acceptable; this should really be kept within a singular file paired with a component.
+
     let persons = null;
 
     if (this.state.showPersons) {
@@ -115,6 +127,7 @@ class App extends Component {
         </h2>
 
         <button
+          style={style}
           // onClick={this.switchNameHandler}
           onClick={this.togglePersonHandler}
         >
