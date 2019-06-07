@@ -43,8 +43,9 @@ class App extends Component {
       persons: persons
     })
   };
-  // This handler is meant to work with the text box that was added to the person component starting on line 12
-  // What this does is allow the user to immediately change a piece of data held within the controller before their very eyes!
+  // Given this method, the goal is to not mutate the original state. What is happening here is the personIndex constant is finding the singular specific id, the person constant 
+  // is using a spread operator to copy the original state and create a new array all together (keeping the original state untouched), person.name allows us to update the array at the specifc
+  // position, and then allow us to dynamically update the DOM.
 
   hobbyChangeHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
@@ -63,9 +64,7 @@ class App extends Component {
       persons: persons
     })
   };
-  // This is just an additional handler added in meant to controll the hobby
-  // As you can see, these handlers are limited to just one of the Person components due to the fact that if I were to add this to both
-  // both of the components would produce the exact same change. For the sake of displaying what React can do though, I've left it to just the one
+  // Refer to line 46
 
   deletePesonHandler = (personIndex) => {
     const persons = [...this.state.persons];
