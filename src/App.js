@@ -98,9 +98,11 @@ class App extends Component {
         backgroundColor: "lightGreen",
         color: "black"
       }
+      // Because of the radium package, we're allowed to use the pseudo selectors for the inline styles!
     }
 
     // While i'm typically against inline styling, in this instance it's acceptable; this should really be kept within a singular file paired with a component.
+    // The justification in doing styles like this is to avoid implementing these styles on all of the same pieces.
 
     let persons = null;
 
@@ -137,6 +139,10 @@ class App extends Component {
       };
       // This is how you can add conditional rendering to styles! This will make it so that if the array is being displayed, the button will reflect said styles.
       // Technically you could also call specific parts of the original style (style.backgroundColor) if you only want to change one aspect, but either way it works.
+      style[":hover"] = {
+        backgroundColor: "salmon",
+        color: "black"
+      }
     };
 
     const classes = [];
