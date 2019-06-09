@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Person from "./Person/Person";
+import Radium from "radium";
 import "./App.css";
 import "./Person/Person.css";
 
@@ -92,7 +93,11 @@ class App extends Component {
       padding: "8px",
       font: "inherit",
       border: "4px solid blue",
-      transition: ".5s"
+      transition: ".5s",
+      ":hover": {
+        backgroundColor: "lightGreen",
+        color: "black"
+      }
     }
 
     // While i'm typically against inline styling, in this instance it's acceptable; this should really be kept within a singular file paired with a component.
@@ -172,7 +177,9 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
+
+// You need to import Radium to allow the useage of pseudo selectors. In doing this, the app becomes a higher order component.
 
 
   // ------------------ Alternative State methods through Hooks!---------------------//
