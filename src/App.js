@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Person from "./Person/Person";
-import Radium from "radium";
+import Radium, { StyleRoot } from "radium";
 import "./App.css";
 import "./Person/Person.css";
 
@@ -159,26 +159,29 @@ class App extends Component {
       classes.push("shrink");
     };
     return (
-      <div className="App">
-        <h1>Hi, I'm the beginning of a basic React App!</h1>
-        <h2>
-          This is a pretty bare bones example, but there's still going to be
-          some interesting stuff happening here! I promise!
+      <StyleRoot>
+        <div className="App">
+          <h1>Hi, I'm the beginning of a basic React App!</h1>
+          <h2>
+            This is a pretty bare bones example, but there's still going to be
+            some interesting stuff happening here! I promise!
         </h2>
-        <p className={classes.join(" ")}>I blinked did something change...?</p>
-        <button
-          style={style}
-          // onClick={this.switchNameHandler}
-          onClick={this.togglePersonHandler}
-        >
-          {/* Include last name initials! */}
-          Reveal the components!
+          <p className={classes.join(" ")}>I blinked did something change...?</p>
+          <button
+            style={style}
+            // onClick={this.switchNameHandler}
+            onClick={this.togglePersonHandler}
+          >
+            {/* Include last name initials! */}
+            Reveal the components!
         </button>
 
-        {persons}
-        {/* This persons, which is established in the render(), allows the conditional rendering to happen */}
+          {persons}
+          {/* This persons, which is established in the render(), allows the conditional rendering to happen */}
 
-      </div>
+        </div>
+      </StyleRoot>
+      // Without the <StyleRoot> tags wrapping the entire app, the media queries won't work.
     );
   }
 }
