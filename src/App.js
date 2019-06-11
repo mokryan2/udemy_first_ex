@@ -91,6 +91,7 @@ class App extends Component {
     // The justification in doing styles like this is to avoid implementing these styles on all of the same pieces.
 
     let persons = null;
+    let btnClass= null;
 
     if (this.state.showPersons) {
       persons = (
@@ -107,14 +108,12 @@ class App extends Component {
               changedHobby={(event) => this.hobbyChangeHandler(event, person.id)}
             />
           })}
-
         </div>
       );
       // This is the more elegant method to conditionally render component in the DOM. By inserting this here in the render() as opposed to the return(), it keeps the code cleaner.
-
-
-      // This is how you can add conditional rendering to styles! This will make it so that if the array is being displayed, the button will reflect said styles.
-      // Technically you could also call specific parts of the original style (style.backgroundColor) if you only want to change one aspect, but either way it works.
+      
+      btnClass = classes.Red
+      // Thanks to the change in methodology from webpack, you can add conditional rendering this way by setting a variable and calling the styles
     };
 
     // With the use of Webpack for styling, there was a need to change the way this way implemented(refer to ln 400-407 in webpack.config.js)
@@ -142,6 +141,7 @@ class App extends Component {
         </h2>
         <p className={assignedClasses.join(" ")}>I blinked did something change...?</p>
         <button
+        className={btnClass}
           // onClick={this.switchNameHandler}
           onClick={this.togglePersonHandler}
         >
