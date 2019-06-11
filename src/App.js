@@ -86,16 +86,6 @@ class App extends Component {
   render() {
     // JSX elements will be added here by means of components or general!
 
-    let style = {
-      backgroundColor: "green",
-      color: "white",
-      fontSize: "24px",
-      cursor: "pointer",
-      padding: "8px",
-      font: "inherit",
-      border: "4px solid blue",
-      transition: ".5s"
-    }
 
     // While i'm typically against inline styling, in this instance it's acceptable; this should really be kept within a singular file paired with a component.
     // The justification in doing styles like this is to avoid implementing these styles on all of the same pieces.
@@ -123,16 +113,6 @@ class App extends Component {
       // This is the more elegant method to conditionally render component in the DOM. By inserting this here in the render() as opposed to the return(), it keeps the code cleaner.
 
 
-      style = {
-        backgroundColor: "red",
-        font: "inherit",
-        fontWeight: "bold",
-        color: "black",
-        fontSize: "24px",
-        border: "4px solid yellow",
-        padding: "8px",
-        transition: ".5s"
-      };
       // This is how you can add conditional rendering to styles! This will make it so that if the array is being displayed, the button will reflect said styles.
       // Technically you could also call specific parts of the original style (style.backgroundColor) if you only want to change one aspect, but either way it works.
     };
@@ -162,7 +142,6 @@ class App extends Component {
         </h2>
         <p className={assignedClasses.join(" ")}>I blinked did something change...?</p>
         <button
-          style={style}
           // onClick={this.switchNameHandler}
           onClick={this.togglePersonHandler}
         >
