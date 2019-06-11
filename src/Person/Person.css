@@ -5,7 +5,9 @@
   border: 2px solid gray;
   box-shadow: 3px 3px black;
   text-align: center;
+  transition: .5s;
 }
- .Person:hover {
-   border: 5px solid orange
- }
+
+.Person:hover {
+   border: 5px solid orange;
+}
