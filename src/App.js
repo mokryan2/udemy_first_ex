@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Person from "./Person/Person";
-import Radium, { StyleRoot } from "radium";
 import "./App.css";
 import "./Person/Person.css";
 
@@ -93,12 +92,7 @@ class App extends Component {
       padding: "8px",
       font: "inherit",
       border: "4px solid blue",
-      transition: ".5s",
-      ":hover": {
-        backgroundColor: "lightGreen",
-        color: "black"
-      }
-      // Because of the radium package, we're allowed to use the pseudo selectors for the inline styles!
+      transition: ".5s"
     }
 
     // While i'm typically against inline styling, in this instance it's acceptable; this should really be kept within a singular file paired with a component.
@@ -139,10 +133,6 @@ class App extends Component {
       };
       // This is how you can add conditional rendering to styles! This will make it so that if the array is being displayed, the button will reflect said styles.
       // Technically you could also call specific parts of the original style (style.backgroundColor) if you only want to change one aspect, but either way it works.
-      style[":hover"] = {
-        backgroundColor: "salmon",
-        color: "black"
-      }
     };
 
     const classes = [];
@@ -159,42 +149,40 @@ class App extends Component {
       classes.push("shrink");
     };
     return (
-      <StyleRoot>
-        <div className="App">
-          <h1>Hi, I'm the beginning of a basic React App!</h1>
-          <h2>
-            This is a pretty bare bones example, but there's still going to be
-            some interesting stuff happening here! I promise!
+      <div className="App">
+        <h1>Hi, I'm the beginning of a basic React App!</h1>
+        <h2>
+          This is a pretty bare bones example, but there's still going to be
+          some interesting stuff happening here! I promise!
         </h2>
-          <p className={classes.join(" ")}>I blinked did something change...?</p>
-          <button
-            style={style}
-            // onClick={this.switchNameHandler}
-            onClick={this.togglePersonHandler}
-          >
-            {/* Include last name initials! */}
-            Reveal the components!
+        <p className={classes.join(" ")}>I blinked did something change...?</p>
+        <button
+          style={style}
+          // onClick={this.switchNameHandler}
+          onClick={this.togglePersonHandler}
+        >
+          {/* Include last name initials! */}
+          Reveal the components!
         </button>
 
-          {persons}
-          {/* This persons, which is established in the render(), allows the conditional rendering to happen */}
+        {persons}
+        {/* This persons, which is established in the render(), allows the conditional rendering to happen */}
 
-        </div>
-      </StyleRoot>
+      </div>
       // Without the <StyleRoot> tags wrapping the entire app, the media queries won't work.
     );
   }
 }
 
-export default Radium(App);
+export default App;
 
 // You need to import Radium to allow the useage of pseudo selectors. In doing this, the app becomes a higher order component.
 
 
-  // ------------------ Alternative State methods through Hooks!---------------------//
-  // Aside from using the current methods mentioned above, there is a new methodology called using Hooks to manage state manipulation.
-  // Going forward, this most likley will be the new trend, but it's still kind of new so it'll take some getting used to.
-  // What this change will require affects some of the initial set up
+// ------------------ Alternative State methods through Hooks!---------------------//
+// Aside from using the current methods mentioned above, there is a new methodology called using Hooks to manage state manipulation.
+// Going forward, this most likley will be the new trend, but it's still kind of new so it'll take some getting used to.
+// What this change will require affects some of the initial set up
 
 // import React, {Component} from "react"; will now be replaced with import React, {useState} from "react";
 // class App extends Component will be replaced with const app(or App either one really)= props => {}
@@ -330,3 +318,23 @@ export default Radium(App);
 
 //  This method, while it does technically work, is mildly inelegant for it's intended purpose. It causes a lot of unneccesary clutter within the actual code.
 //  By using the current method that is inserted prior to the return(), it allows the initial template of the page to remain much cleaner.
+
+
+// ============================= Using Radium to style pseudo elements ==================
+
+// import Radium, { StyleRoot } from "radium";
+// The <StyleRoot /> tag needs to wrap around the entire div app to work!
+
+// ,
+//       ":hover": {
+//         backgroundColor: "lightGreen",
+//         color: "black"
+//       }
+// Because of the radium package, we're allowed to use the pseudo selectors for the inline styles!
+
+// style[":hover"] = {
+//   backgroundColor: "salmon",
+//   color: "black"
+// }
+
+// While using Radium is one method, you can also used WebPack.
