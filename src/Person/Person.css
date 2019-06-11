@@ -6,3 +6,6 @@
   box-shadow: 3px 3px black;
   text-align: center;
 }
+ .Person:hover{
+   border: 5px solid orange
+ }

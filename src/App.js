@@ -3,6 +3,8 @@ import Person from "./Person/Person";
 import classes from "./App.css";
 import "./Person/Person.css";
 
+// Due to the change of methodology for styling via Webpack, you need to call in the styles as if you were calling in specific packages
+
 class App extends Component {
   state = {
     persons: [
@@ -152,6 +154,7 @@ class App extends Component {
     };
     return (
       <div className={classes.App}>
+        {/* Because we changed to webpack styling methdology, we need to also account for the change in syntax */}
         <h1>Hi, I'm the beginning of a basic React App!</h1>
         <h2>
           This is a pretty bare bones example, but there's still going to be
