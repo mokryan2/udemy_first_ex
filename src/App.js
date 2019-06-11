@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Person from "./Person/Person";
-import "./App.css";
+import classes from "./App.css";
 import "./Person/Person.css";
 
 class App extends Component {
@@ -135,27 +135,29 @@ class App extends Component {
       // Technically you could also call specific parts of the original style (style.backgroundColor) if you only want to change one aspect, but either way it works.
     };
 
-    const classes = [];
+    // With the use of Webpack for styling, there was a need to change the way this way implemented(refer to ln 400-407 in webpack.config.js)
+    // Additionally you needed to change the way styles was called from the app.css
+    const assignedClasses = [];
 
     if (this.state.persons.length <= 2) {
-      classes.push("red");
+      assignedClasses.push(classes.red);
     };
 
     if (this.state.persons.length <= 1) {
-      classes.push("bold");
+      assignedClasses.push(classes.bold);
     };
 
     if (this.state.persons.length <= 0) {
-      classes.push("shrink");
+      assignedClasses.push(classes.shrink);
     };
     return (
-      <div className="App">
+      <div className={classes.App}>
         <h1>Hi, I'm the beginning of a basic React App!</h1>
         <h2>
           This is a pretty bare bones example, but there's still going to be
           some interesting stuff happening here! I promise!
         </h2>
-        <p className={classes.join(" ")}>I blinked did something change...?</p>
+        <p className={assignedClasses.join(" ")}>I blinked did something change...?</p>
         <button
           style={style}
           // onClick={this.switchNameHandler}
