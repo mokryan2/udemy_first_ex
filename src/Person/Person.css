@@ -7,6 +7,7 @@
   text-align: center;
   transition: .5s;
   cursor: pointer;
+  background-image: url(./email-pattern.png)
 }
 
 .Person:hover {
