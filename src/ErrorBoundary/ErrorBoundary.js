@@ -28,4 +28,5 @@ class ErrorBoundary extends Component {
 export default ErrorBoundary;
 
 // This component is considered to be a "Higher Order Component". While this is super useful, you shouldn't be using these all willy-nilly.
-// In the reality of actual deployment, you should only use this for code you know you can ABSOLUTELY NOT CONTROL.
+// In the reality of actual deployment, you should only use this for code you know you HAVE NO CONTROL OVER AT ALL.
+// This component will be removed eventually from the App code.

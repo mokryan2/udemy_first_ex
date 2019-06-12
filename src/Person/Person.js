@@ -8,10 +8,10 @@ const person = (props) => {
   // This is done by using props.whatever extra information you pass through the app itself! This will go hand in hand with information added into App.js
 
   const rnd = Math.random();
-  if (rnd > .7) {
+  if (rnd > 0.7) {
     throw new Error("Something went wrong")
   };
-  // Refer to the ErrorBoundary Component to understand the purpose of said code
+  // Refer to the ErrorBoundary Component to understand the purpose of said code. This should be removed later on due to the unconventional purposing of said code.
 
   return (
     <div className={styles.Person}>
