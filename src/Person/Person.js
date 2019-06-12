@@ -7,7 +7,11 @@ const person = (props) => {
   // In order to have dynamic data for React, you need to use what is called props (Properties for short) to further improve your data
   // This is done by using props.whatever extra information you pass through the app itself! This will go hand in hand with information added into App.js
 
-
+  const rnd = Math.random();
+  if (rnd > .7) {
+    throw new Error("Something went wrong")
+  };
+  // Refer to the ErrorBoundary Component to understand the purpose of said code
 
   return (
     <div className={styles.Person}>

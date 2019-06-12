@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Person from "./Person/Person";
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 import classes from "./App.css";
 import "./Person/Person.css";
 
@@ -91,27 +92,28 @@ class App extends Component {
     // The justification in doing styles like this is to avoid implementing these styles on all of the same pieces.
 
     let persons = null;
-    let btnClass= null;
+    let btnClass = null;
 
     if (this.state.showPersons) {
       persons = (
         <div>
           {/* This is a modification to the render method. Given the initial state is an array, you can use the map() method to easily render the data. */}
           {this.state.persons.map((person, index) => {
-            return <Person
-              click={() => this.deletePesonHandler(index)}
-              name={person.name}
-              age={person.age}
-              hobby={person.hobby}
-              key={person.id}
-              changedName={(event) => this.nameChangeHandler(event, person.id)}
-              changedHobby={(event) => this.hobbyChangeHandler(event, person.id)}
-            />
+            return <ErrorBoundary key={person.id}> 
+              <Person
+                click={() => this.deletePesonHandler(index)}
+                name={person.name}
+                age={person.age}
+                hobby={person.hobby}
+                changedName={(event) => this.nameChangeHandler(event, person.id)}
+                changedHobby={(event) => this.hobbyChangeHandler(event, person.id)}
+              />
+            </ErrorBoundary>
           })}
         </div>
       );
       // This is the more elegant method to conditionally render component in the DOM. By inserting this here in the render() as opposed to the return(), it keeps the code cleaner.
-      
+
       btnClass = classes.Red
       // Thanks to the change in methodology from webpack, you can add conditional rendering this way by setting a variable and calling the styles
     };
@@ -141,7 +143,7 @@ class App extends Component {
         </h2>
         <p className={assignedClasses.join(" ")}>I blinked did something change...?</p>
         <button
-        className={btnClass}
+          className={btnClass}
           // onClick={this.switchNameHandler}
           onClick={this.togglePersonHandler}
         >
