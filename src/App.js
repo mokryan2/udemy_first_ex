@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Person from "./Person/Person";
-import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
+import Person from "./Components/Persons/Person/Person";
 import classes from "./App.css";
 import "./Person/Person.css";
 
@@ -99,16 +98,15 @@ class App extends Component {
         <div>
           {/* This is a modification to the render method. Given the initial state is an array, you can use the map() method to easily render the data. */}
           {this.state.persons.map((person, index) => {
-            return <ErrorBoundary key={person.id}> 
-              <Person
-                click={() => this.deletePesonHandler(index)}
-                name={person.name}
-                age={person.age}
-                hobby={person.hobby}
-                changedName={(event) => this.nameChangeHandler(event, person.id)}
-                changedHobby={(event) => this.hobbyChangeHandler(event, person.id)}
-              />
-            </ErrorBoundary>
+            return <Person
+              click={() => this.deletePesonHandler(index)}
+              name={person.name}
+              age={person.age}
+              hobby={person.hobby}
+              key={person.id}
+              changedName={(event) => this.nameChangeHandler(event, person.id)}
+              changedHobby={(event) => this.hobbyChangeHandler(event, person.id)}
+            />
           })}
         </div>
       );
