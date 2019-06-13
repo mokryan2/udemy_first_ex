@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import Person from "./Components/Persons/Person/Person";
+import Person from "../Components/Persons/Person/Person";
 import classes from "./App.css";
-import "./Person/Person.css";
 
 // Due to the change of methodology for styling via Webpack, you need to call in the styles as if you were calling in specific packages
 
