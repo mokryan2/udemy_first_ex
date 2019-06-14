@@ -85,10 +85,6 @@ class App extends Component {
   render() {
     // JSX elements will be added here by means of components or general!
 
-
-    // While i'm typically against inline styling, in this instance it's acceptable; this should really be kept within a singular file paired with a component.
-    // The justification in doing styles like this is to avoid implementing these styles on all of the same pieces.
-
     let persons = null;
     let btnClass = null;
 
@@ -103,7 +99,6 @@ class App extends Component {
           />
         </div>
       );
-      // This is the more elegant method to conditionally render component in the DOM. By inserting this here in the render() as opposed to the return(), it keeps the code cleaner.
 
       btnClass = classes.Red
       // Thanks to the change in methodology from webpack, you can add conditional rendering this way by setting a variable and calling the styles
@@ -127,20 +122,7 @@ class App extends Component {
     return (
       <div className={classes.App}>
         {/* Because we changed to webpack styling methdology, we need to also account for the change in syntax */}
-        <h1>Hi, I'm the beginning of a basic React App!</h1>
-        <h2>
-          This is a pretty bare bones example, but there's still going to be
-          some interesting stuff happening here! I promise!
-        </h2>
-        <p className={assignedClasses.join(" ")}>I blinked did something change...?</p>
-        <button
-          className={btnClass}
-          // onClick={this.switchNameHandler}
-          onClick={this.togglePersonHandler}
-        >
-          {/* Include last name initials! */}
-          Reveal the components!
-        </button>
+
 
         {persons}
         {/* This persons, which is established in the render(), allows the conditional rendering to happen */}
