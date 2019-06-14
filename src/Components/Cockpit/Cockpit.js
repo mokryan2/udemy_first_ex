@@ -5,9 +5,9 @@ const cockpit = (props) => {
     // With the use of Webpack for styling, there was a need to change the way this way implemented(refer to ln 400-407 in webpack.config.js)
     // Additionally you needed to change the way styles was called from the app.css
     const assignedClasses = [];
-    let btnClass = null;
+    let btnClass = " ";
 
-    if (props.showPersons){
+    if (props.showPerson){
         btnClass = classes.Red 
     };
 
@@ -23,7 +23,7 @@ const cockpit = (props) => {
         assignedClasses.push(classes.shrink);
     };
     return (
-        <div>
+        <div className={classes.Cockpit}>
             <h1>Hi, I'm the beginning of a basic React App!</h1>
             <h2>
                 This is a pretty bare bones example, but there's still going to be
