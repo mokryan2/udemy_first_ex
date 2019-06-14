@@ -66,7 +66,7 @@ class App extends Component {
       persons: persons
     })
   };
-  // Refer to line 46
+  // Refer to line 48
 
   deletePesonHandler = (personIndex) => {
     const persons = [...this.state.persons];
@@ -89,16 +89,12 @@ class App extends Component {
     let persons = null;
 
     if (this.state.showPersons) {
-      persons = (
-        <div>
-          <Persons
+      persons = <Persons
             persons={this.state.persons}
             clicked={this.deletePesonHandler}
             changed1={this.nameChangeHandler}
             changed2={this.hobbyChangeHandler}
-          />
-        </div>
-      );
+          />;
 
       // Thanks to the change in methodology from webpack, you can add conditional rendering this way by setting a variable and calling the styles
     };
@@ -115,7 +111,6 @@ class App extends Component {
         {/* This persons, which is established in the render(), allows the conditional rendering to happen */}
 
       </div>
-      // Without the <StyleRoot> tags wrapping the entire app, the media queries won't work.
     );
   }
 }

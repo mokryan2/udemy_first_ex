@@ -43,4 +43,7 @@ const cockpit = (props) => {
     );
 };
 
-export default cockpit
+export default cockpit;
+
+// Much like in the Persons.js, this logic which was originally placed in the App.js was moved here to keep the App.js file free of clutter.
+// Again this is to really keep everything more granular and ergo more clean.
