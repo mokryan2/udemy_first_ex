@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Persons from "../Components/Persons/Persons"
+import Persons from "../Components/Persons/Persons";
+import Cockpit from "../Components/Cockpit/Cockpit";
 import classes from "./App.css";
 
 // Due to the change of methodology for styling via Webpack, you need to call in the styles as if you were calling in specific packages
@@ -86,7 +87,6 @@ class App extends Component {
     // JSX elements will be added here by means of components or general!
 
     let persons = null;
-    let btnClass = null;
 
     if (this.state.showPersons) {
       persons = (
@@ -100,30 +100,17 @@ class App extends Component {
         </div>
       );
 
-      btnClass = classes.Red
       // Thanks to the change in methodology from webpack, you can add conditional rendering this way by setting a variable and calling the styles
     };
 
-    // With the use of Webpack for styling, there was a need to change the way this way implemented(refer to ln 400-407 in webpack.config.js)
-    // Additionally you needed to change the way styles was called from the app.css
-    const assignedClasses = [];
-
-    if (this.state.persons.length <= 2) {
-      assignedClasses.push(classes.red);
-    };
-
-    if (this.state.persons.length <= 1) {
-      assignedClasses.push(classes.bold);
-    };
-
-    if (this.state.persons.length <= 0) {
-      assignedClasses.push(classes.shrink);
-    };
     return (
       <div className={classes.App}>
         {/* Because we changed to webpack styling methdology, we need to also account for the change in syntax */}
-
-
+        <Cockpit
+          showPersons={this.state.showPersons}
+          persons={this.state.persons}
+          clicked={this.togglePersonHandler}
+        />
         {persons}
         {/* This persons, which is established in the render(), allows the conditional rendering to happen */}
 
