@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Person from "../Components/Persons/Person/Person";
+import Persons from "../Components/Persons/Persons"
 import classes from "./App.css";
 
 // Due to the change of methodology for styling via Webpack, you need to call in the styles as if you were calling in specific packages
@@ -95,18 +95,12 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          {/* This is a modification to the render method. Given the initial state is an array, you can use the map() method to easily render the data. */}
-          {this.state.persons.map((person, index) => {
-            return <Person
-              click={() => this.deletePesonHandler(index)}
-              name={person.name}
-              age={person.age}
-              hobby={person.hobby}
-              key={person.id}
-              changedName={(event) => this.nameChangeHandler(event, person.id)}
-              changedHobby={(event) => this.hobbyChangeHandler(event, person.id)}
-            />
-          })}
+          <Persons
+            persons={this.state.persons}
+            clicked={this.deletePesonHandler}
+            changed1={this.nameChangeHandler}
+            changed2={this.hobbyChangeHandler}
+          />
         </div>
       );
       // This is the more elegant method to conditionally render component in the DOM. By inserting this here in the render() as opposed to the return(), it keeps the code cleaner.
