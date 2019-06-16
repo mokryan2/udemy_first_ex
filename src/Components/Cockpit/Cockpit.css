@@ -42,9 +42,10 @@
     color: black;
 }
 
-h1{
+.Cockpit h1{
     animation: flow 20s ease-in-out infinite;
-    background: linear-gradient(to right, #1e9600, #fff200, #ff0000);    background-size: 300%;
+    background: linear-gradient(to right, #1e9600, #fff200, #ff0000);    
+    background-size: 300%;
     -webkit-background-clip: text;
     background-clip:text;
     -webkit-text-fill-color: transparent;
