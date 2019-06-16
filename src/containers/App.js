@@ -90,11 +90,11 @@ class App extends Component {
 
     if (this.state.showPersons) {
       persons = <Persons
-            persons={this.state.persons}
-            clicked={this.deletePesonHandler}
-            changed1={this.nameChangeHandler}
-            changed2={this.hobbyChangeHandler}
-          />;
+        persons={this.state.persons}
+        clicked={this.deletePesonHandler}
+        changed1={this.nameChangeHandler}
+        changed2={this.hobbyChangeHandler}
+      />;
 
       // Thanks to the change in methodology from webpack, you can add conditional rendering this way by setting a variable and calling the styles
     };
@@ -103,6 +103,7 @@ class App extends Component {
       <div className={classes.App}>
         {/* Because we changed to webpack styling methdology, we need to also account for the change in syntax */}
         <Cockpit
+          title={this.props.appTitle}
           showPersons={this.state.showPersons}
           persons={this.state.persons}
           clicked={this.togglePersonHandler}
