@@ -25,6 +25,7 @@ const cockpit = (props) => {
     return (
         <div className={classes.Cockpit}>
             <h1>{props.title}</h1>
+            {/* Because this is not a class-based component, there's no need to use "this" to direct any specific focus */}
             <h2>
                 This is a pretty bare bones example, but there's still going to be
                 some interesting stuff happening here! I promise!
